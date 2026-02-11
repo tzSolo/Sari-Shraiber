@@ -12,3 +12,6 @@ const Popup = ({ h2, p }: PopupProps) => {
 }
 
 export default Popup;
+
+
+ {/* <Popup {...{ h2: "שרי שרייבר", p: "צלמת ..." }} /> */}

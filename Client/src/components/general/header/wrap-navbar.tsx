@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { LinkProps } from "../../types";
 import Navbar from "./navbar";
 
-const InitNavbar = () => {
+const InitNavbar = () => {//כנראה שאפשר למחוק את זה
     const [links, setLinks] = useState<LinkProps[]>([{ to: 's', text: 's' }]);
 
     useEffect(() => {
@@ -20,8 +20,10 @@ const InitNavbar = () => {
 
     return <>
         <header>
-            <div>😊</div>
-            <Navbar arrLinks={links} />
+            <div className="container">
+                <div>😊</div>
+                <Navbar arrLinks={links} />
+            </div>
         </header>
     </>
 }

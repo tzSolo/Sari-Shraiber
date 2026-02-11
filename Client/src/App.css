@@ -1,18 +1,36 @@
 :root {
-  --logo-color-1: lightblue;
-  --logo-color-2: rgb(0, 0, 255);
+  --logo-color-1: rgb(248 188 160);
+  --logo-color-2: rgb(163 97 101);
   font-family: 'Calibri Light';
   direction: rtl;
 }
 
+body #root {
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ----  HEADER  ---- */
+
 header {
-  height: 90px;
+  height: 40px;
   background-color: var(--logo-color-1);
   padding: 20px 50px;
+  font-size: 25px;
+}
+
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 25px;
+}
+
+#logo {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
 }
 
 header ul {
@@ -39,7 +57,6 @@ header ul li {
 header ul li:hover {
   transform: scale(1.06);
   transition: all .3s;
-  font-weight: bold;
 }
 
 header ul li::before {
@@ -55,9 +72,14 @@ header ul li::before {
   border-radius: 5px;
 }
 
-header ul li:hover:before {
-  border-width: 3px;
+/* ----  MAIN  ---- */
+
+main .container {
+  margin: 0 auto;
+  width: 90%;
 }
+
+/* ----  POPUP  ---- */
 
 .overlay {
   position: fixed;
@@ -84,4 +106,10 @@ header ul li:hover:before {
 
 .popup p {
   font-size: 40px;
+}
+
+/* ----  FOOTER  ---- */
+
+footer {
+  text-align: center;
 }

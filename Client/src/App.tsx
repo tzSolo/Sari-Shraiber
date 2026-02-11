@@ -1,11 +1,16 @@
+import { Outlet } from 'react-router-dom';
 import './App.css'
-import InitNavbar from './components/general/header/wrap-navbar'
-// import Popup from './components/general/popup';
+import Footer from './components/general/footer';
+import MainContainer from './components/general/main-container';
+import Header from './components/general/header/header';
 
 function App() {
   return <>
-    <InitNavbar />
-    {/* <Popup {...{ h2: "שרי שרייבר", p: "צלמת ..." }} /> */}
+    <Header />
+    <MainContainer>
+      <Outlet />
+    </MainContainer>
+    <Footer />
   </>
 }
 
