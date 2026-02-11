@@ -17,8 +17,11 @@ body #root {
 header {
   height: 40px;
   background-color: var(--logo-color-1);
-  padding: 20px 50px;
+  padding: 10px 50px;
   font-size: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 999999;
 }
 
 header .container {
@@ -28,8 +31,8 @@ header .container {
 }
 
 #logo {
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 
@@ -49,17 +52,19 @@ header ul * {
 
 header ul li {
   width: fit-content;
-  padding: 5px 15px;
-  background-color: white;
+  padding: 1px 10px 3px;
+  border-radius: 3px;
+  background-color: var(--logo-color-1);
   position: relative;
 }
 
 header ul li:hover {
-  transform: scale(1.06);
+  --logo-color-1: rgb(163 97 101);
+  --logo-color-2: rgb(248 188 160);
   transition: all .3s;
 }
 
-header ul li::before {
+/* header ul li::before {
   content: '';
   position: absolute;
   height: 100%;
@@ -70,7 +75,7 @@ header ul li::before {
   transform: translate(-50%, -50%);
   border: 2px solid var(--logo-color-2);
   border-radius: 5px;
-}
+} */
 
 /* ----  MAIN  ---- */
 
@@ -111,5 +116,14 @@ main .container {
 /* ----  FOOTER  ---- */
 
 footer {
+  background-color: var(--logo-color-1);
+  color: var(--logo-color-2);
+  font-size: 20px;
+  font-weight: bold;
   text-align: center;
+  padding: 10px 0;
+}
+
+footer p{
+  margin: 0;
 }
