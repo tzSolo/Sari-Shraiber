@@ -1,12 +1,18 @@
 :root {
   --logo-color-1: rgb(248 188 160);
   --logo-color-2: rgb(163 97 101);
+  --lightly-bg: rgb(128 128 128 / 30%);
   font-family: 'Calibri Light';
   direction: rtl;
 }
 
-body #root {
-  height: 900px;
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,7 +32,7 @@ header {
 
 header .container {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
 }
 
@@ -39,7 +45,7 @@ header .container {
 header ul {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 90%;
 }
@@ -52,10 +58,11 @@ header ul * {
 
 header ul li {
   width: fit-content;
-  padding: 1px 10px 3px;
+  padding: 1px 15px 3px;
   border-radius: 3px;
   background-color: var(--logo-color-1);
   position: relative;
+  margin: 0 15px;
 }
 
 header ul li:hover {
@@ -64,24 +71,78 @@ header ul li:hover {
   transition: all .3s;
 }
 
-/* header ul li::before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  transform: translate(-50%, -50%);
-  border: 2px solid var(--logo-color-2);
-  border-radius: 5px;
-} */
-
 /* ----  MAIN  ---- */
 
 main .container {
   margin: 0 auto;
   width: 90%;
+}
+
+.home{
+  text-align: center;
+}
+
+#courses-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#courses-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  border: 3px solid black;
+  border-radius: 15px;
+  overflow: hidden;
+  /* padding: 15px 0; */
+}
+
+.course {
+  /* width: 90%; */
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.course div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  background-color: var(--lightly-bg);
+  transform-origin: top;
+  transition: all .3s;
+}
+
+.course:hover div {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+.course h2,
+.course p {
+  margin: 5px 0;
+  color: var(--logo-color-1);
+  text-shadow: 0 0 3px var(--logo-color-2);
+  font-size: 30px;
+}
+
+.course img {
+  width: 100%;
 }
 
 /* ----  POPUP  ---- */
@@ -124,6 +185,6 @@ footer {
   padding: 10px 0;
 }
 
-footer p{
+footer p {
   margin: 0;
 }
