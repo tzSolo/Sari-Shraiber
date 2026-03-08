@@ -1,12 +1,12 @@
-import { coursesData } from "../types";
+import useCourses from "../../hooks/courses";
 import Course from "./course";
 
 const Courses = () => {
-    const { arrCourses } = coursesData;
+    const { courses } = useCourses();
 
     return <>
         <ul id="courses-list">
-            {arrCourses.map((course, index) => {
+            {courses.map((course, index) => {
                 return <li key={index}>
                     <Course {...course} />
                 </li>

@@ -1,6 +1,6 @@
 import express, { type Application } from "express";
 import dotenv from "dotenv";
-import entityRouter from "./entities/curd.router.ts";
+import entityRouter from "./entities/curd.router.js";
 
 dotenv.config();
 

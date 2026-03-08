@@ -1,5 +1,5 @@
-import { supabase } from "../lib/supabase.ts";
-import type { Entity } from "./entity.model.ts";
+import { supabase } from "../lib/supabase.js";
+import type { Entity } from "./entity.model.js";
 
 
 export const getAllEntities = async (tableName: string): Promise<Entity[]> => {

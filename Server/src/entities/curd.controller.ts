@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { getAllEntities, getEntityById, addEntity, updateEntity, deleteEntity } from "./curd.service.ts"
+import { getAllEntities, getEntityById, addEntity, updateEntity, deleteEntity } from "./curd.service.js"
 
 const getTable = (req: Request) => {
     const name = req.baseUrl.replace("/", "");
