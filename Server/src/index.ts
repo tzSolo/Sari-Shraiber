@@ -15,6 +15,10 @@ app.use(cors({
 app.use(express.json());
 app.use("/buyers", entityRouter);
 app.use("/courses", entityRouter);
+app.use("/course_files", entityRouter);
+app.use("/captions", entityRouter);
+app.use("/images", entityRouter);
+app.use("/admins", entityRouter);
 
 
 app.listen(PORT, () => {
