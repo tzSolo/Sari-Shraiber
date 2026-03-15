@@ -12,7 +12,6 @@ const arrRouters = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "courses", element: <Courses /> },
-      { path: "imageprocessing", element: <Courses /> },
 
       { path: '*', element: <Navigate to="/" /> }
     ]

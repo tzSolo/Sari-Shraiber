@@ -1,23 +1,53 @@
 import { useEffect, useState } from "react";
-import { coursesData, type CourseProps } from "../components/types";
+import type { Course, FullCourse } from "../models/course";
+import type { Caption } from "../models/caption";
+import type { Image } from "../models/image";
+
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const useCourses = () => {
-    const { arrCourses } = coursesData;
-    const [courses, setCourses] = useState<CourseProps[]>(arrCourses);
+    const [courses, setCourses] = useState<FullCourse[]>([]);
 
     useEffect(() => {
         const fetchCourses = async () => {
-            const response = await fetch("https://sarishraiberserver.onrender.com/courses");
-            if (response.ok) {
-                const data = await response.json();
-                setCourses(data);
+            try {
+                const res = await fetch(`${baseUrl}/courses`);
+                if (!res.ok) throw new Error("Failed to fetch courses");
+
+                const courses: Course[] = await res.json();
+
+                const fullCourses = await Promise.all(
+                    courses.map(async (course) => {
+                        const [captionRes, imageRes] = await Promise.all([
+                            fetch(`${baseUrl}/captions/${course.caption_id}`),
+                            fetch(`${baseUrl}/images/${course.image_id}`)
+                        ]);
+
+                        if (!captionRes.ok || !imageRes.ok) {
+                            throw new Error("Failed to fetch related data");
+                        }
+
+                        const caption: Caption = await captionRes.json();
+                        const image: Image = await imageRes.json();
+
+                        return {
+                            course,
+                            caption,
+                            image
+                        };
+                    })
+                );
+
+                setCourses(fullCourses);
+            } catch (error) {
+                console.error(error);
             }
-        }
+        };
 
         fetchCourses();
-    }, [])
+    }, []);
 
-    return { courses }
-}
+    return { courses };
+};
 
 export default useCourses;
