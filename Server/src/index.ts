@@ -19,6 +19,7 @@ app.use("/course_files", entityRouter);
 app.use("/captions", entityRouter);
 app.use("/images", entityRouter);
 app.use("/admins", entityRouter);
+app.use("/story", entityRouter);
 
 
 app.listen(PORT, () => {
