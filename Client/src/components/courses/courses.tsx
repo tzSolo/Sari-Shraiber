@@ -7,7 +7,7 @@ const Courses = () => {
 
     useEffect(() => {
         courses.sort((c1, c2) =>
-             c1.course.order_num - c2.course.order_num
+            c1.course.serial_num - c2.course.serial_num
         )
     }, []);
 

@@ -76,8 +76,6 @@ header ul li:hover {
 main .container {
   margin: 0 auto;
   width: 90%;
-  display: flex;
-  justify-content: center;
 }
 
 .home {
@@ -168,7 +166,7 @@ main .container {
   color: var(--logo-color-2);
   width: fit-content;
   padding: 20px 50px;
-  margin: 45px 0;
+  margin: 45px auto;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
