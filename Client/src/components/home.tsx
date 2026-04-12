@@ -1,17 +1,20 @@
-import { useEffect } from "react";
+import type { ElementType } from "react";
 import useStory from "../hooks/story";
 
 const Home = () => {
     const { story } = useStory();
 
-    useEffect(() => {
-        story.sort((s1, s2) =>
-            s1.serial_num - s2.serial_num
-        );
-    }, [])
+    const sortedStory = [...story].sort(
+        (a, b) => a.serial_num - b.serial_num
+    );
+
     return <>
-        {story.map(caption => {
-            return <p className="home">{caption.text}</p>
+        {sortedStory.map(caption => {
+            const Tag = caption.html_tag as ElementType;
+
+            return <Tag className="home">
+                {caption.text}
+            </Tag>
         })}
     </>
 }
