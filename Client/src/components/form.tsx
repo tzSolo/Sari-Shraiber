@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { PersonalDetails } from "../models/personal-details";
 import { useSearchParams } from "react-router-dom";
 
 const Form = () => {
     const [form, setForm] = useState<PersonalDetails>({
-        id: 1,
         first_name: "",
         last_name: "",
         email: ""
     });
-    const [valid, setValid] = useState();
+
+    const [confirmed, setConfirmed] = useState<boolean>(false);
+    const [valid, setValid] = useState<boolean>(false);
     const [params] = useSearchParams();
     const courseId = params.get("id");
 
@@ -24,12 +25,18 @@ const Form = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        if (form.first_name === "" || form.last_name === "" || form.email === "") {
-
-        }
         console.log(courseId);
     };
 
+    useEffect(() => {
+        setValid(
+            form.first_name.trim() !== "" &&
+            form.last_name.trim() !== "" &&
+            form.email.trim() !== "" &&
+            confirmed
+        );
+    }, [form, confirmed])
+    
     return <>
         <form onSubmit={handleSubmit} className="personal-details-form">
             <div>
@@ -64,10 +71,12 @@ const Form = () => {
                     id="confirm"
                     name="confirm"
                     type="checkbox"
+                    checked={confirmed}
+                    onChange={(({target})=>setConfirmed(target.checked))}
                 />
                 <label htmlFor="confirm">אני מתחייבת שלא להעביר את <br />הקורס ולצפות בו באופן פרטי בלבד!</label>
             </div>
-            <button type="submit">לתשלום והורדה</button>
+            <button type="submit" disabled={!valid}>לתשלום והורדה</button>
         </form>
     </>
 }
