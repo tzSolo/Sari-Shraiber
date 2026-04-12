@@ -5,6 +5,7 @@ export interface Course {
     id: number,
     name: string,
     price: number,
+    order_num:number
     caption_id: number,
     image_id: number
 }

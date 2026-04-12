@@ -76,6 +76,8 @@ header ul li:hover {
 main .container {
   margin: 0 auto;
   width: 90%;
+  display: flex;
+  justify-content: center;
 }
 
 .home {
@@ -115,6 +117,18 @@ main .container {
   overflow: hidden;
 }
 
+.price {
+  background-color: var(--logo-color-1);
+  color: var(--logo-color-2);
+  width: 50%;
+  padding: 2px;
+  position: absolute;
+  top: 7%;
+  right: -15%;
+  transform: rotate(40deg);
+  text-align: center;
+}
+
 .course div {
   position: absolute;
   top: 50%;
@@ -131,7 +145,7 @@ main .container {
   transition: all .3s;
 }
 
-.course:hover div {
+.course-square:hover div {
   transform: translate(-50%, -50%) scaleY(0);
 }
 
@@ -145,6 +159,55 @@ main .container {
 
 .course img {
   width: 100%;
+}
+
+/* ----  FORM  ---- */
+
+.personal-details-form {
+  border: 2px solid var(--logo-color-2);
+  color: var(--logo-color-2);
+  width: fit-content;
+  padding: 20px 50px;
+  margin: 45px 0;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+}
+
+.personal-details-form * {
+  font-size: 25px;
+}
+
+.personal-details-form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  padding: 5px;
+}
+
+#confirm-checkbox {
+  flex-direction: row;
+}
+
+.personal-details-form div label {
+  padding: 5px 0;
+}
+
+.personal-details-form button {
+  padding: 1px 15px 3px;
+  border-radius: 3px;
+  background-color: var(--logo-color-1);
+  color: var(--logo-color-2);
+  border: none;
+  margin: 0 15px;
+}
+
+.personal-details-form button:hover {
+  background-color: var(--logo-color-2);
+  color: var(--logo-color-1);
 }
 
 /* ----  POPUP  ---- */

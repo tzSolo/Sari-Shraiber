@@ -1,10 +1,10 @@
-import { theFullStory } from "./types";
+import useStory from "../hooks/story";
 
 const Home = () => {
-    const { text } = theFullStory;
+    const { story } = useStory();
 
     return <>
-        {text.map(p => {
+        {story.map(p => {
             return <p className="home">{p}</p>
         })}
     </>
