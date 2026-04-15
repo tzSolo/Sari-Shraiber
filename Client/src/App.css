@@ -84,7 +84,7 @@ main .container {
   width: 90%;
 }
 
-.home {
+.p-home {
   text-align: center;
 }
 
@@ -167,7 +167,7 @@ main .container {
 
 /* ----  FORM  ---- */
 
-#personal-details-form {
+form {
   border: 2px solid var(--logo-color-2);
   color: var(--logo-color-2);
   width: fit-content;
@@ -181,15 +181,15 @@ main .container {
   font-size: 25px;
 }
 
-#personal-details-form * {
+form * {
   font-size: 25px;
 }
 
-#personal-details-form label {
+form label {
   max-width: 350px;
 }
 
-#personal-details-form div {
+form div {
   display: flex;
   flex-direction: column;
   justify-content: right;
@@ -200,11 +200,21 @@ main .container {
   flex-direction: row;
 }
 
-#personal-details-form div label {
+form div label {
   padding: 5px 0;
 }
 
-#personal-details-form button {
+form div input {
+  border: 1px solid var(--logo-color-2);
+  border-radius: 5px;
+}
+
+form div input:focus {
+  outline: none;
+  border-color: var(--logo-color-1);
+}
+
+form button {
   padding: 1px 15px 3px;
   border-radius: 3px;
   background-color: var(--logo-color-1);
@@ -213,7 +223,7 @@ main .container {
   margin: 0 15px;
 }
 
-#personal-details-form button:hover {
+form button:hover {
   background-color: var(--logo-color-2);
   color: var(--logo-color-1);
 }
