@@ -6,11 +6,11 @@ interface InputData {
 
 interface ButtonData {
     type: "submit" | "reset" | "button",
-    caption: string
+    caption: string,
+    data: string
 }
 
 export interface FullForm {
-    id: string,
     count: number,
     inputs: InputData[],
     button: ButtonData

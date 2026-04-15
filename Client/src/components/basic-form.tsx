@@ -3,7 +3,7 @@ import useForm from "../hooks/form";
 import { useEffect, useState } from "react";
 
 const BasicForm = (formFullData: FullForm) => {
-    const { id, count, inputs, button } = formFullData;
+    const { count, inputs, button } = formFullData;
     const { form, handleChange, handleSubmit } = useForm();
     const [valid, setValid] = useState<boolean>(false);
 
@@ -21,7 +21,7 @@ const BasicForm = (formFullData: FullForm) => {
     }, [form])
 
     return <>
-        <form onSubmit={handleSubmit} id={id}>
+        <form onSubmit={handleSubmit}>
             {inputs.map((input, index) => {
                 return <div key={index}>
                     <label htmlFor={input.name}>{input.hebrew}</label>
