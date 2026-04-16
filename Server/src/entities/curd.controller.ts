@@ -2,7 +2,7 @@ import type { Request, Response } from "express";
 import { getAllEntities, getEntityById, addEntity, updateEntity, deleteEntity } from "./curd.service.js"
 
 const getTable = (req: Request) => {
-    const name = req.baseUrl.replace("/", "");
+    const name = req.params.entity;
     const tableName = name[0].toUpperCase() + name.slice(1);
     return tableName;
 };

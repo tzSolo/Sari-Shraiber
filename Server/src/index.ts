@@ -13,13 +13,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use("/buyers", entityRouter);
-app.use("/courses", entityRouter);
-app.use("/course_files", entityRouter);
-app.use("/captions", entityRouter);
-app.use("/images", entityRouter);
-app.use("/admins", entityRouter);
-app.use("/story", entityRouter);
+app.use("/api/:entity", entityRouter);
 
 
 app.listen(PORT, () => {
