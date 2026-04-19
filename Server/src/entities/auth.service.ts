@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 export const loginUser = async (email: string, password: string) => {
     const { data, error } = await supabase
-        .from("Users")
+        .from("users")
         .select("*")
         .eq("email", email)
         .single();
