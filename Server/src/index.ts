@@ -14,7 +14,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use("/api/:entity", entityRouter);
+
+app.use("/api/entities/:entity", entityRouter);
 app.use("/api/auth", loginRouter);
 
 
