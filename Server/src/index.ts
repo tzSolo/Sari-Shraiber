@@ -2,7 +2,7 @@ import express, { type Application } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import entityRouter from "./entities/curd.router.js";
-import loginRouter from "./entities/auth.router.js";
+import loginRouter from "./auth/auth.router.js";
 
 dotenv.config();
 
