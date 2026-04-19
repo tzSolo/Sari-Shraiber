@@ -2,6 +2,7 @@ import express, { type Application } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import entityRouter from "./entities/curd.router.js";
+import loginRouter from "./entities/auth.router.js";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use("/api/:entity", entityRouter);
+app.use("/api/auth", loginRouter);
 
 
 app.listen(PORT, () => {
