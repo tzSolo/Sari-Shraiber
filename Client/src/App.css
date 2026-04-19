@@ -196,8 +196,9 @@ form div {
   padding: 5px;
 }
 
-#confirm-checkbox {
-  flex-direction: row;
+form div:nth-child(4) {
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 form div label {
@@ -212,6 +213,31 @@ form div input {
 form div input:focus {
   outline: none;
   border-color: var(--logo-color-1);
+}
+
+form div input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  margin: 0 0 0 20px;
+  border-radius: 20%;
+  border: 1px solid var(--logo-color-2);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  pointer-events: auto;
+  position: relative;
+}
+
+input:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: rotate(45deg) translate(-104%, -26%);
+  width: 5px;
+  height: 10px;
+  border: solid var(--logo-color-2);
+  border-width: 0 3px 3px 0;
 }
 
 form button {

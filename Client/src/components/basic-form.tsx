@@ -3,8 +3,8 @@ import useForm from "../hooks/form";
 import { useEffect, useState } from "react";
 
 const BasicForm = (formFullData: FullForm) => {
-    const { count, inputs, button } = formFullData;
-    const { form, handleChange, handleSubmit } = useForm();
+    const { count, inputs, button, submit } = formFullData;
+    const { form, handleChange, handleSubmit } = useForm(submit);
     const [valid, setValid] = useState<boolean>(false);
 
     useEffect(() => {

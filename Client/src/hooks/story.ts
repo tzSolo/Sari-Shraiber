@@ -14,7 +14,7 @@ const useStory = () => {
 
     useEffect(() => {
         const fetchStory = async () => {
-            const response = await fetch(`${baseUrl}/story`)
+            const response = await fetch(`${baseUrl}/entities/story`)
             if (response.ok) {
                 const data = await response.json();
                 const sortedStory = sortStory(data);

@@ -3,7 +3,7 @@ import type { Course, FullCourse } from "../models/course";
 import type { Caption } from "../models/caption";
 import type { Image } from "../models/image";
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = import.meta.env.VITE_BASE_URL + '/entities';
 
 const useCourses = () => {
     const [courses, setCourses] = useState<FullCourse[]>([]);

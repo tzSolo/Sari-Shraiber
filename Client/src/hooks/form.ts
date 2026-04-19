@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useForm = () => {
+const useForm = (onSubmit: (data: any) => void) => {
     const [form, setForm] = useState<any>({});
 
     const handleChange = (target: HTMLInputElement) => {
@@ -11,11 +11,14 @@ const useForm = () => {
             [name]: type == "checkbox" ? checked : value
         }));
     };
+
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log('clicked');
+        onSubmit(form);
+        console.log(form);
+        
+    };
 
-    }
     return { form, handleChange, handleSubmit }
 }
 
