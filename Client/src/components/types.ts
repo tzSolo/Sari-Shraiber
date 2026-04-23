@@ -1,6 +1,8 @@
 export type LinkProps = {
     to: string,
-    text: string
+    text: string,
+    focus: { name: string; active: boolean }[];
+    handleClick: (el: string) => void;
 }
 
 export type NavbarProps = {
@@ -9,15 +11,8 @@ export type NavbarProps = {
 
 export const defaultLinks: NavbarProps = {
     arrLinks: [
-        { to: '/', text: 'בית' },
-        { to: '/courses', text: 'קורסים' }
-    ]
-};
-
-export const coursesLinks: NavbarProps = {
-    arrLinks: [{ to: '/photoshop', text: 'פוטו שופ' },
-    { to: '/albums', text: 'אלבומים' },
-    { to: '/imageprocessing', text: 'עיבוד תמונה' }
+        { to: '/', text: 'בית', focus: [], handleClick: () => { } },
+        { to: '/courses', text: 'קורסים', focus: [], handleClick: () => { } }
     ]
 };
 

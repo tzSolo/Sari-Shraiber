@@ -1,8 +1,12 @@
 :root {
-  --logo-color-1: rgb(248 188 160);
-  --logo-color-2: rgb(163 97 101);
+  --logo-color-1: #2f2f2f;
+  --logo-color-2: #ff5b72;
+  --logo-color-3: rgb(188 162 53);
+  --colored-font-color: rgb(243, 183, 138);
+  --font-color: white;
+  --change-color-1: var(--logo-color-1);
+  --change-color-2: var(--logo-color-2);
   --lightly-bg: rgb(128 128 128 / 30%);
-  font-family: 'Calibri Light';
   direction: rtl;
 }
 
@@ -18,31 +22,45 @@ body,
   justify-content: space-between;
 }
 
+body {
+  background-color: var(--logo-color-1);
+}
+
+body * {
+  font-family: 'Varela Round';
+  font-weight: bold;
+  color: var(--font-color);
+}
+
 /* ----  HEADER  ---- */
 
 header {
-  height: 40px;
+  height: 85px;
   background-color: var(--logo-color-1);
   padding: 10px 50px;
   font-size: 25px;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 999999;
+  border-bottom: 3px solid var(--logo-color-2);
 }
 
 header .container {
+  height: 100%;
   display: flex;
   align-items: center;
 }
 
-#logo,
-#login {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
+#logo {
+  height: 70px;
+  width: 210px;
 }
 
 #login {
+  height: 70px;
+  width: 70px;
+  margin-left: 140px;
   transform: scaleX(-1);
   padding-left: 25px;
   cursor: pointer;
@@ -56,36 +74,99 @@ header ul {
   width: 80%;
 }
 
-header ul * {
-  color: var(--logo-color-2);
-  text-decoration: none;
-  text-align: center;
-}
-
 header ul li {
   width: fit-content;
   padding: 1px 15px 3px;
   border-radius: 3px;
-  background-color: var(--logo-color-1);
+  color: var(--change-color-2);
+  background-color: var(--change-color-1);
   position: relative;
   margin: 0 15px;
 }
 
-header ul li:hover {
-  --logo-color-1: rgb(163 97 101);
-  --logo-color-2: rgb(248 188 160);
+header ul li:hover,
+li:has(.active) {
+  --change-color-1: var(--logo-color-2);
+  --change-color-2: var(--logo-color-1);
   transition: all .3s;
 }
 
+header ul li a {
+  color: var(--change-color-2);
+  text-decoration: none;
+  text-align: center;
+}
+
 /* ----  MAIN  ---- */
+main {
+  padding-top: 180px;
+}
 
 main .container {
   margin: 0 auto;
   width: 90%;
 }
 
+main * {
+  font-size: 20px;
+}
+
 .p-home {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.5;
   text-align: center;
+}
+
+.p-home.colored.end-paragraph.big {
+  width: 100%;
+  position: sticky;
+  top: 108px;
+  padding-top: 20px;
+  background-color: var(--logo-color-1);
+}
+
+.p-home.colored.end-paragraph.big::before {
+  content: '';
+  display: block;
+  position: sticky;
+  top: 310px;
+  margin: 0 auto;
+  height: 5px;
+  width: 60%;
+  background-color: var(--colored-font-color);
+}
+
+.p-home.colored.end-paragraph.big::after {
+  content: "";
+  position: absolute;
+  margin-right: 5px;
+  animation: three-dots;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.colored {
+  color: var(--colored-font-color);
+}
+
+.end-paragraph {
+  margin-bottom: 40px;
+}
+
+.quotes::before,
+.quotes::after {
+  content: '"';
+}
+
+.medium {
+  /* להנגיש לכל אחת את סודות הפוטושופ. */
+  font-size: 32px;
+}
+
+.big {
+  font-size: 40px;
 }
 
 #courses-list {
@@ -168,12 +249,12 @@ main .container {
 /* ----  FORM  ---- */
 
 form {
-  border: 2px solid var(--logo-color-2);
+  border: 2px solid var(--logo-color-3);
   color: var(--logo-color-2);
   width: fit-content;
   padding: 20px 50px;
   margin: 45px auto;
-  border-radius: 15px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -187,6 +268,7 @@ form * {
 
 form label {
   max-width: 350px;
+  color: var(--logo-color-2);
 }
 
 form div {
@@ -206,13 +288,14 @@ form div label {
 }
 
 form div input {
-  border: 1px solid var(--logo-color-2);
+  color: var(--logo-color-1);
+  border: 2px solid var(--logo-color-3);
   border-radius: 5px;
 }
 
 form div input:focus {
   outline: none;
-  border-color: var(--logo-color-1);
+  border-color: var(--logo-color-2);
 }
 
 form div input[type="checkbox"] {
@@ -220,7 +303,7 @@ form div input[type="checkbox"] {
   width: 20px;
   margin: 0 0 0 20px;
   border-radius: 20%;
-  border: 1px solid var(--logo-color-2);
+  border: 1px solid var(--logo-color-3);
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -241,17 +324,19 @@ input:checked::after {
 }
 
 form button {
+  align-self: flex-end;
   padding: 1px 15px 3px;
   border-radius: 3px;
-  background-color: var(--logo-color-1);
-  color: var(--logo-color-2);
-  border: none;
+  background-color: var(--change-color-2);
+  color: var(--font-color);
+  border: 1px solid var(--font-color);
   margin: 0 15px;
+  cursor: pointer;
 }
 
 form button:hover {
-  background-color: var(--logo-color-2);
-  color: var(--logo-color-1);
+  --change-color-2: transparent;
+  --font-color: var(--logo-color-2);
 }
 
 /* ----  POPUP  ---- */
@@ -287,13 +372,26 @@ form button:hover {
 
 footer {
   background-color: var(--logo-color-1);
-  color: var(--logo-color-2);
   font-size: 20px;
-  font-weight: bold;
   text-align: center;
   padding: 10px 0;
 }
 
 footer p {
   margin: 0;
+  color: var(--logo-color-2);
+}
+
+@keyframes three-dots {
+  33% {
+    content: ".";
+  }
+
+  66% {
+    content: "..";
+  }
+
+  100% {
+    content: "...";
+  }
 }

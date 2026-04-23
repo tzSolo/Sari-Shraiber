@@ -15,13 +15,13 @@ const Header = () => {
         <header>
             <div className="container">
                 <img src={logo} alt="logo" id="logo" />
+                <Navbar {...defaultLinks} />
                 <img
                     src={door}
                     alt="login"
                     id="login"
                     onClick={handleLoginClick}
                 />
-                <Navbar {...defaultLinks} />
             </div>
         </header>
     </>

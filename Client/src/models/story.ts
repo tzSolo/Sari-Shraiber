@@ -1,5 +1,5 @@
 export interface StoryCaption {
-    id: number,
+    tag: string,
     text: string,
-    serial_num: number
+    classes: string[]
 }
