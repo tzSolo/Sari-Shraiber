@@ -1,4 +1,3 @@
-import { defaultLinks } from "../../types";
 import Navbar from "./navbar";
 import logo from "../../../images/logo.jpg";
 import door from "../../../images/door.jpg";
@@ -12,10 +11,11 @@ const Header = () => {
     }
 
     return <>
+        <div id="header-placeholder"></div>
         <header>
             <div className="container">
                 <img src={logo} alt="logo" id="logo" />
-                <Navbar {...defaultLinks} />
+                <Navbar />
                 <img
                     src={door}
                     alt="login"

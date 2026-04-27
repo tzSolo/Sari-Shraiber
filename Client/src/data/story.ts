@@ -4,53 +4,111 @@ import type { StoryCaption } from "../models/story";
 export const story: StoryCaption[] =
     [
         {
-            tag: "p", text: "נעים להכיר, שרי שרייבר - ", classes: []
+            text: "נעים להכיר, שרי שרייבר - ",
+            classes: []
         },
         {
-            tag: "p", text: "צלמת מקצועית במיוחד לניו בורן ", classes: []
+            text: "צלמת מקצועית במיוחד לניו בורן ",
+            classes: []
         },
         {
-            tag: "p", text: "עם חלום ישן.", classes: ["end-paragraph", "big"]
+            text: "עם חלום ישן.",
+            classes: ["end-paragraph", "big"]
         },
         {
-            tag: "p", text: "לחלום הזה קוראים - ", classes: []
+            text: "לחלום הזה קוראים - ",
+            classes: []
         },
         {
-            tag: "p", text: "להנגיש לכל אחת את סודות הפוטושופ.", classes: ["end-paragraph", "medium"]
+            text: "להנגיש לכל אחת את סודות הפוטושופ.",
+            classes: ["end-paragraph", "medium"]
         },
         {
-            tag: "p", text: "ככה בעצם הוא נולד", classes: ["end-paragraph", "colored", "big"]
+            text: "ככה בעצם הוא נולד",
+            classes: ["end-paragraph", "colored", "big","three-dots"]
         },
         {
-            tag: "span", text: "המקום: ", classes: ["colored"]
+            text: "המקום : חנות פוטו איכות, בני ברק",
+            classes: []
         },
         {
-            tag: "p", text: "חנות פוטו איכות, בני ברק", classes: []
+            text: ` הזמן : ערב ראש השנה פ"ה`,
+            classes: []
         },
         {
-            tag: "span", text: "הזמן:", classes: ["colored"]
+            text: "החנות דחוסה ועמוסה",
+            classes: ["colored"]
         },
         {
-            tag: "p", text: ` ערב ראש השנה פ"ה`, classes: []
+            text: "אני ממתינה לקולאזים הממוגנטים שהדפסתי ללקוחות שלי",
+            classes: ["colored"]
         },
         {
-            tag: "p", text: "החנות דחוסה ועמוסה", classes: ["colored"]
+            text: "ובינתיים--- מקשיבה לקולות סביבי",
+            classes: ["colored"]
         },
         {
-            tag: "p", text: "אני ממתינה לקולאזים הממוגנטים שהדפסתי ללקוחות שלי", classes: ["colored"]
+            text: "(כן כן, ממש כמו בני ברקית😉)",
+            classes: []
         },
         {
-            tag: "p", text: "ובינתיים --- מקשיבה לקולות סביבי", classes: ["colored"]
+            text: "אז אחרי שצילמתי את הילדים על הדשא,",
+            classes: ["start-quotes", "colored"]
         },
         {
-            tag: "p", text: "(כן כן, ממש כמו בני ברקית😉)", classes: []
+            text: "התחננתי לשכנה שתעבד לי אותם",
+            classes: ["colored"]
         },
-        { tag: "p", text: "אז אחרי שצילמתי את הילדים על הדשא,", classes: ["quotes", "colored"] },
-        { tag: "p", text: "התחננתי לשכנה שתעבד לי אותם", classes: ["colored"] },
-        { tag: "p", text: "ואחרי זה נסיתי לעצב פה כיתוב -", classes: ["colored"] },
-        { tag: "p", text: "אבל עם כל הדוחס פה... - תראי את זה-", classes: ["quotes", "colored"] },
-        { tag: "p", text: "היא מראה את התוצרת לאחותה.", classes: [] },
-        { tag: "p", text: "לא נראית מרוצה בכלל.", classes: [] },
-        { tag: "p", text: "שלמתי לגרפיקאית מאתים חמישים שקל,", classes: ["quotes", "colored"] },
-        { tag: "p", text: "", classes: [] }
+        {
+            text: "ואחרי זה נסיתי לעצב פה כיתוב -",
+            classes: ["colored"]
+        },
+        {
+            text: "אבל עם כל הדוחס פה... - תראי את זה-",
+            classes: ["end-quotes", "colored"]
+        },
+        {
+            text: "היא מראה את התוצרת לאחותה.",
+            classes: []
+        },
+        {
+            text: "לא נראית מרוצה בכלל.",
+            classes: []
+        },
+        {
+            text: "שלמתי לגרפיקאית מאתים חמישים שקל,",
+            classes: ["start-quotes", "colored"]
+        },
+        {
+            text: "",
+            classes: []
+        },
+        {
+            text: "",
+            classes: []
+        },
+        {
+            text: "",
+            classes: []
+        },
+        {
+            text: "",
+            classes: []
+        },
+        {
+            text: "",
+            classes: []
+        },
+        {
+            text: "",
+            classes: []
+        },
+        {
+            text: "",
+            classes: []
+        },
+        {
+            text: "",
+            classes: []
+        }
     ];

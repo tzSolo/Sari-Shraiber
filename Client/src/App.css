@@ -23,6 +23,7 @@ body,
 }
 
 body {
+  margin: 0;
   background-color: var(--logo-color-1);
 }
 
@@ -32,7 +33,15 @@ body * {
   color: var(--font-color);
 }
 
+ul {
+  margin: 0;
+  list-style: none;
+}
+
 /* ----  HEADER  ---- */
+#header-placeholder {
+  min-height: 108px;
+}
 
 header {
   height: 85px;
@@ -67,7 +76,6 @@ header .container {
 }
 
 header ul {
-  list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,13 +90,13 @@ header ul li {
   background-color: var(--change-color-1);
   position: relative;
   margin: 0 15px;
+  transition: all .3s;
 }
 
 header ul li:hover,
 li:has(.active) {
   --change-color-1: var(--logo-color-2);
   --change-color-2: var(--logo-color-1);
-  transition: all .3s;
 }
 
 header ul li a {
@@ -98,9 +106,6 @@ header ul li a {
 }
 
 /* ----  MAIN  ---- */
-main {
-  padding-top: 180px;
-}
 
 main .container {
   margin: 0 auto;
@@ -111,14 +116,20 @@ main * {
   font-size: 20px;
 }
 
+/* ---- HOME ---- */
+
+.p-home,
+.p-home span {
+  font-size: 26px;
+}
+
 .p-home {
   margin: 0;
-  font-size: 26px;
   line-height: 1.5;
   text-align: center;
 }
 
-.p-home.colored.end-paragraph.big {
+.three-dots {
   width: 100%;
   position: sticky;
   top: 108px;
@@ -126,7 +137,7 @@ main * {
   background-color: var(--logo-color-1);
 }
 
-.p-home.colored.end-paragraph.big::before {
+.three-dots::before {
   content: '';
   display: block;
   position: sticky;
@@ -137,7 +148,7 @@ main * {
   background-color: var(--colored-font-color);
 }
 
-.p-home.colored.end-paragraph.big::after {
+.three-dots::after {
   content: "";
   position: absolute;
   margin-right: 5px;
@@ -155,13 +166,12 @@ main * {
   margin-bottom: 40px;
 }
 
-.quotes::before,
-.quotes::after {
+.start-quotes::before,
+.end-quotes::after {
   content: '"';
 }
 
 .medium {
-  /* להנגיש לכל אחת את סודות הפוטושופ. */
   font-size: 32px;
 }
 
@@ -169,8 +179,64 @@ main * {
   font-size: 40px;
 }
 
+/* ---- FAQS ---- */
+
+.faqs {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.faqs img {
+  width: 30px;
+  padding-left: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+.faqs h2 {
+  font-size: 31px;
+  margin: 20px ;
+}
+
+.faqs p {
+  width: 100%;
+  margin: 0;
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all .3s;
+}
+
+.faqs.open p {
+  height: fit-content;
+  transform: none;
+}
+
+.faqs:nth-child(1) h2 {
+  color: rgb(245, 98, 117);
+}
+
+.faqs:nth-child(2) h2 {
+  color: rgb(243, 183, 138);
+}
+
+.faqs:nth-child(3) h2 {
+  color: rgb(1, 172, 156);
+}
+
+.faqs:nth-child(4) h2 {
+  color: rgb(42, 201, 209);
+}
+
+.faqs:nth-child(5) h2 {
+  color: rgb(219, 214, 136);
+}
+
+/* ---- COURSES ---- */
+
 #courses-list {
-  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
@@ -240,6 +306,7 @@ main * {
   color: var(--logo-color-1);
   text-shadow: 0 0 3px var(--logo-color-2);
   font-size: 30px;
+  text-align: center;
 }
 
 .course img {
@@ -332,11 +399,12 @@ form button {
   border: 1px solid var(--font-color);
   margin: 0 15px;
   cursor: pointer;
+  transition: all .3s;
 }
 
 form button:hover {
-  --change-color-2: transparent;
-  --font-color: var(--logo-color-2);
+  transform: scale(1.05);
+  box-shadow: 0 0 3px 3px gray;
 }
 
 /* ----  POPUP  ---- */

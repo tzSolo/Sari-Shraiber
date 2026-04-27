@@ -1,14 +1,14 @@
 import NavbarLink from "./nb-link";
-import type { NavbarProps } from '../../types'
 import useLink from "../../../hooks/header-link";
 
-const Navbar = ({ arrLinks }: NavbarProps) => {
-    const { focus, handleClick } = useLink();
+const Navbar = () => {
+    const { linksList, active, handleClick } = useLink();
+    
     return <>
         <ul>
-            {arrLinks.map((link, index) => {
+            {linksList.map((link, index) => {
                 return <li key={index}>
-                    <NavbarLink {...{ ...link, focus, handleClick }} />
+                    <NavbarLink {...{ ...link, active, handleClick }} />
                 </li>
             })}
         </ul >

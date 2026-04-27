@@ -6,6 +6,7 @@ import Courses from './components/courses/courses.tsx';
 import Home from './components/home.tsx';
 import Form from './components/buy-form.tsx';
 import Login from './components/login.tsx';
+import FAQs from './components/FAQs.tsx';
 
 const arrRouters = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const arrRouters = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "courses", element: <Courses /> },
       { path: "form", element: <Form /> },
+      { path: "faqs", element: <FAQs /> },
 
       { path: '*', element: <Navigate to="/" /> }
     ]

@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import type { LinkProps } from "../../types";
+import type { HeaderLink } from "../../../models/link";
 
-const NavbarLink = ({ to, text ,focus,handleClick}: LinkProps) => {
+const NavbarLink = ({ to, text, active, handleClick }: HeaderLink) => {
 
     return <>
         <Link
             to={to}
             onClick={() => handleClick(text)}
-            className={focus.find(e => e.name === text)?.active ? "active" : ""}
+            className={active === text ? "active" : ""}
         >
             {text}
         </Link>

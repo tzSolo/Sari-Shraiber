@@ -1,16 +1,26 @@
 import { useState } from "react";
+import type { HeaderLink } from "../models/link";
+
+const baseLinks = [
+    { to: '/', text: 'בית' },
+    { to: '/faqs', text: 'שאלות נפוצות' },
+    { to: '/courses', text: 'קורסים' }
+];
 
 const useLink = () => {
-    const [focus, setFocus] = useState([
-        { name: "בית", active: true },
-        { name: "קורסים", active: false }
-    ]);
+    const [active, setActive] = useState<string>('בית');
 
-    const handleClick = (el: any) => {
-        setFocus(prev => prev.map(e => ({ ...e, active: e.name === el })));
-    }
+    const handleClick = (name: string) => {
+        setActive(name);
+    };
 
-    return { focus, handleClick }
-}
+    const linksList: HeaderLink[] = baseLinks.map(link => ({
+        ...link,
+        active: link.text,
+        handleClick
+    }));
+
+    return { linksList, active, handleClick };
+};
 
 export default useLink;
