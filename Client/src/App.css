@@ -10,16 +10,15 @@
   direction: rtl;
 }
 
+::selection {
+  color: var(--logo-color-2);
+  background-color: var(--font-color);
+}
+
 html,
 body,
 #root {
   height: 100%;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 body {
@@ -39,9 +38,6 @@ ul {
 }
 
 /* ----  HEADER  ---- */
-#header-placeholder {
-  min-height: 108px;
-}
 
 header {
   height: 85px;
@@ -107,6 +103,13 @@ header ul li a {
 
 /* ----  MAIN  ---- */
 
+main {
+  min-height: calc(100% - 108px);
+  margin-top: 108px;
+  display: flex;
+  align-items: center;
+}
+
 main .container {
   margin: 0 auto;
   width: 90%;
@@ -117,6 +120,10 @@ main * {
 }
 
 /* ---- HOME ---- */
+
+.container:has(.p-home) {
+  padding: 50px 0;
+}
 
 .p-home,
 .p-home span {
@@ -169,6 +176,7 @@ main * {
 .start-quotes::before,
 .end-quotes::after {
   content: '"';
+  padding: 0 2px;
 }
 
 .medium {
@@ -197,10 +205,11 @@ main * {
 
 .faqs h2 {
   font-size: 31px;
-  margin: 20px ;
+  margin: 20px;
 }
 
 .faqs p {
+  white-space: pre-line;
   width: 100%;
   margin: 0;
   height: 0;
@@ -212,6 +221,10 @@ main * {
 .faqs.open p {
   height: fit-content;
   transform: none;
+}
+
+.faqs p a {
+  color: var(--logo-color-2);
 }
 
 .faqs:nth-child(1) h2 {
@@ -439,8 +452,13 @@ form button:hover {
 /* ----  FOOTER  ---- */
 
 footer {
+  position: fixed;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  left: 0;
+  bottom: 0;
   background-color: var(--logo-color-1);
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   padding: 10px 0;
 }

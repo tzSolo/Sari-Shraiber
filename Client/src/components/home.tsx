@@ -1,6 +1,23 @@
+import { useEffect } from "react";
 import { story } from "../data/story";
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 const Home = () => {
+
+    useEffect(() => {
+        const awakeServer = async () => {
+
+            let response, count = 0;
+            do {
+                response = await fetch(baseUrl);
+                count++;
+            }
+            while (!response.ok && count < 5)
+        }
+
+        awakeServer();
+    }, []);
 
     return <>
         {story.map((c, index) => {

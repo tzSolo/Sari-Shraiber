@@ -8,7 +8,7 @@ const baseLinks = [
 ];
 
 const useLink = () => {
-    const [active, setActive] = useState<string>('בית');
+    const [active, setActive] = useState<string>("בית");
 
     const handleClick = (name: string) => {
         setActive(name);

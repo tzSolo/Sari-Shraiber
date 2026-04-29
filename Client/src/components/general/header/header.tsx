@@ -11,7 +11,6 @@ const Header = () => {
     }
 
     return <>
-        <div id="header-placeholder"></div>
         <header>
             <div className="container">
                 <img src={logo} alt="logo" id="logo" />

@@ -2,6 +2,7 @@ import useFAQs from "../hooks/FAQs";
 import plus from "../images/circle-plus.svg"
 import minus from "../images/circle-minus.svg"
 import { faqs } from "../data/faqs";
+import ReactMarkdown from "react-markdown"
 
 const FAQs = () => {
     const { openId, handleOpen } = useFAQs();
@@ -18,7 +19,15 @@ const FAQs = () => {
                         onClick={() => handleOpen(index)}
                     />
                     <h2>{q.question}</h2>
-                    <p>{q.answer}</p>
+
+                    <ReactMarkdown
+                        components={{
+                            a: ({ node, ...props }) => (
+                                <a {...props} target="_blank" rel="noreferrer" />
+                            ),
+                        }}
+                    >{q.answer}
+                    </ReactMarkdown>
                 </li>
             })}
         </ul>
