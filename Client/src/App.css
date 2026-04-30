@@ -37,6 +37,10 @@ ul {
   list-style: none;
 }
 
+.container {
+  width: 1200px;
+}
+
 /* ----  HEADER  ---- */
 
 header {
@@ -55,6 +59,7 @@ header .container {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 #logo {
@@ -63,12 +68,32 @@ header .container {
 }
 
 #login {
+  width: 100px;
   height: 70px;
-  width: 70px;
-  margin-left: 140px;
-  transform: scaleX(-1);
-  padding-left: 25px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+}
+
+#login img:nth-child(1) {
+  width: 20px;
+  transform: translateX(-30%);
+}
+
+#login:hover img:nth-child(1) {
+  animation-name: arrow-translate;
+  animation-duration: .3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#login img:nth-child(2) {
+  height: 100%;
+  width: 75%;
+  /* margin-left: 140px; */
+  /* transform: scaleX(-1); */
+  /* padding-left: 25px; */
 }
 
 header ul {
@@ -479,5 +504,12 @@ footer p {
 
   100% {
     content: "...";
+  }
+}
+
+
+@keyframes arrow-translate {
+  to {
+    transform: translateX(-100%);
   }
 }
