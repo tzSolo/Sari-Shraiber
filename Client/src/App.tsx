@@ -3,18 +3,18 @@ import './App.css'
 import Footer from './components/general/footer';
 import MainContainer from './components/general/main-container';
 import Header from './components/general/header/header';
-import RoleProvider from './context/role-context';
+import UserProvider from './context/userContext';
 
 
 function App() {
   return <>
-    <RoleProvider>
+    <UserProvider>
       <Header />
       <MainContainer>
         <Outlet />
       </MainContainer>
       <Footer />
-    </RoleProvider>
+    </UserProvider>
   </>
 }
 

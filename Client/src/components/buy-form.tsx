@@ -1,10 +1,12 @@
 import { useSearchParams } from "react-router-dom";
 import BasicForm from "./basic-form";
 import type { FullForm } from "../models/form";
+import usePayment from "../hooks/payment";
 
 const BuyerForm = () => {
     const [params] = useSearchParams();
     const courseId = params.get("id");
+    const { handlePayment } = usePayment();
     const baseUrl = import.meta.env.VITE_BASE_URL;
 
     const submitForm = async (data: any) => {
@@ -23,7 +25,7 @@ const BuyerForm = () => {
         console.log(newUser);
 
         //navigate to uPay with courseID
-        window.open(`?courseId=${courseId}`);
+        handlePayment(courseId);
     }
 
     const buyerForm: FullForm = {

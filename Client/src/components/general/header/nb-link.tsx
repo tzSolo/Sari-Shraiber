@@ -6,8 +6,8 @@ const NavbarLink = ({ to, text, active, handleClick }: HeaderLink) => {
     return <>
         <Link
             to={to}
-            onClick={() => handleClick(text)}
-            className={active === text ? "active" : ""}
+            onClick={() => handleClick(to)}
+            className={active === to ? "active" : ""}
         >
             {text}
         </Link>

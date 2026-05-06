@@ -2,7 +2,7 @@
   --logo-color-1: #2f2f2f;
   --logo-color-2: #ff5b72;
   --logo-color-3: rgb(188 162 53);
-  --colored-font-color: rgb(243, 183, 138);
+  --colored-font-color: rgb(243 183 138);
   --font-color: white;
   --change-color-1: var(--logo-color-1);
   --change-color-2: var(--logo-color-2);
@@ -91,9 +91,6 @@ header .container {
 #login img:nth-child(2) {
   height: 100%;
   width: 75%;
-  /* margin-left: 140px; */
-  /* transform: scaleX(-1); */
-  /* padding-left: 25px; */
 }
 
 header ul {
@@ -225,7 +222,6 @@ main * {
   width: 30px;
   padding-left: 20px;
   cursor: pointer;
-  color: white;
 }
 
 .faqs h2 {
@@ -241,6 +237,10 @@ main * {
   transform: scaleY(0);
   transform-origin: top;
   transition: all .3s;
+}
+
+.faqs:nth-last-child(1) p {
+  padding-bottom: 30px;
 }
 
 .faqs.open p {
@@ -511,5 +511,19 @@ footer p {
 @keyframes arrow-translate {
   to {
     transform: translateX(-100%);
+  }
+}
+
+/* ---- @MEDIA ---- */
+
+@media (max-width:1000px) {
+  .container {
+    width: 900px;
+  }
+}
+
+@media (max-width:850px) {
+  .container {
+    width: 600px;
   }
 }
