@@ -18,7 +18,7 @@ app.use(cors({
 
 app.use(express.json());
 
-app.get("/awake", (req: Request, res: Response) => {
+app.get("/api/awake", (req: Request, res: Response) => {
   res.json({ message: "Server running." });
 })
 app.use("/api/entities/:entity", entityRouter);
