@@ -13,5 +13,5 @@ export const getLinksByRoleId = async (roleId: number) => {
 
     if (error) throw new Error(error.message);
 
-    return data;
+    return data.map(item => item.links);
 }
