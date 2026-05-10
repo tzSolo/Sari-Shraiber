@@ -13,7 +13,7 @@ const Course = ({ course, caption, image }: FullCourse) => {
                 <div style={style}>
                     <h2>{header}</h2>
                     <p>{description}</p>
-                    <span className="price">{price}{" "}ש"ח</span>
+                    <span className="price">{price}{" "} ₪</span>
                 </div>
                 <img src={src} alt={alt} loading="lazy" />
             </Link>

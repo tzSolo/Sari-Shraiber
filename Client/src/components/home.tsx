@@ -9,8 +9,9 @@ const Home = () => {
         const awakeServer = async () => {
 
             let response, count = 0;
+            
             do {
-                response = await fetch(baseUrl);
+                response = await fetch(`${baseUrl}/awake`);
                 count++;
             }
             while (!response.ok && count < 5)

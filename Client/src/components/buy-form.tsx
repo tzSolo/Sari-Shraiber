@@ -13,7 +13,7 @@ const BuyerForm = () => {
         const { first_name, last_name, email } = data;
         const userData = { first_name, last_name, email };
 
-        const response = await fetch(`${baseUrl}/entities/users`, {
+        await fetch(`${baseUrl}/entities/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -21,10 +21,6 @@ const BuyerForm = () => {
             body: JSON.stringify(userData)
         });
 
-        const newUser = await response.json();
-        console.log(newUser);
-
-        //navigate to uPay with courseID
         handlePayment(courseId);
     }
 
