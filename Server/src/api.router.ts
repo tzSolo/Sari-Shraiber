@@ -4,7 +4,7 @@ import loginRouter from "./auth/auth.router.js";
 
 const apiRouter = Router();
 
-apiRouter.use("/api/entities/:entity", entityRouter);
-apiRouter.use("/api/auth", loginRouter);
+apiRouter.use("/entities/:entity", entityRouter);
+apiRouter.use("/auth", loginRouter);
 
 export default apiRouter;
