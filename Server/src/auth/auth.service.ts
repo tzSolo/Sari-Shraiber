@@ -15,9 +15,9 @@ export const loginUser = async (email: string, password: string) => {
     const valid = password === data.password;
     if (!valid) throw new Error("Invalid credentials");
 
-    const accessToken = createAccessToken(data.userId);
-    const refreshToken = createRefreshToken(data.userId)
-    const links = await getLinksByRoleId(data.roleId)
+    const accessToken = createAccessToken(data.id);
+    const refreshToken = createRefreshToken(data.id);
+    const links = await getLinksByRoleId(data.role_id);
 
     return { accessToken, refreshToken, links }
 }
