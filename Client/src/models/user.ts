@@ -5,7 +5,8 @@ export interface User {
     email: string,
     password: string,
     role_id: number,
-    state?: "guest" | "logged in"
+    state?: "guest" | "logged in",
+    token?: string
 }
 
 export interface Role {

@@ -27,7 +27,7 @@ const Login = () => {
             }
 
             const result = await response.json();
-            console.log(result);
+
             if (result.accessToken) {
                 const isValidJWT = result.accessToken.split(".").length === 3;
 
@@ -36,7 +36,9 @@ const Login = () => {
                 }
 
                 handleUserChange("state", "logged in");
-                handleChangeLinks(result.links)
+                handleUserChange("token", result.accessToken);
+                localStorage.setItem("token", result.accessToken);
+                handleChangeLinks(result.links);
                 navigate("/courses");
             }
             else {

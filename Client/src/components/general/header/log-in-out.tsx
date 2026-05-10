@@ -9,12 +9,12 @@ const LogInOrLogOut = () => {
     const navigate = useNavigate();
     const { user } = useContext(userContext);
 
-    const handleLoginClick = () => {
-        navigate("/login");
+    const handleLogInOrOutClick = () => {
+        user.state === "guest" ? navigate("/login") : navigate("/logout");
     }
 
     return <>
-        <div id="login" onClick={handleLoginClick}>
+        <div id="login" onClick={handleLogInOrOutClick}>
             <img
                 src={user.state && user.state === "logged in" ? rightArrow : leftArrow}
                 alt="state"

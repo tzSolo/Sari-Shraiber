@@ -9,7 +9,7 @@ const Home = () => {
         const awakeServer = async () => {
 
             let response, count = 0;
-            
+
             do {
                 response = await fetch(`${baseUrl}/awake`);
                 count++;

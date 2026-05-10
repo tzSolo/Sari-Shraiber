@@ -14,9 +14,7 @@ const useForm = (onSubmit: (data: any) => void) => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        onSubmit(form);
-        console.log(form);
-        
+        onSubmit(form);        
     };
 
     return { form, handleChange, handleSubmit }

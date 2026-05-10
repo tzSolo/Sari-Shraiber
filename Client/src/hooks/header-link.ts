@@ -7,8 +7,9 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 const useLink = () => {
     const location = useLocation();
     const firstActive = location.pathname === "/" ? "/home" : location.pathname;
-    const { links,handleChangeLinks } = useContext(linksContext);
+    const { links, handleChangeLinks } = useContext(linksContext);
     const [active, setActive] = useState<string>(firstActive);
+    const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
     const handleClick = (name: string) => {
         setActive(name);
@@ -43,9 +44,9 @@ const useLink = () => {
         }
 
         fetchLinks();
-    }, [])
+    }, [isAdmin])
 
-    return { links, active, handleClick };
+    return { links, active, handleClick, setIsAdmin };
 };
 
 export default useLink;

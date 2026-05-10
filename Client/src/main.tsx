@@ -7,6 +7,7 @@ import Form from './components/buy-form.tsx';
 import Login from './components/login.tsx';
 import FAQs from './components/FAQs.tsx';
 import Home from './components/home.tsx';
+import LogOut from './components/logout.tsx';
 
 const arrRouters = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const arrRouters = createBrowserRouter([
       { index: true, element: <Navigate to="/home" /> },
       { path: "home", element: <Home /> },
       { path: "login", element: <Login /> },
+      { path: "logout", element: <LogOut /> },
       { path: "courses", element: <Courses /> },
       { path: "form", element: <Form /> },
       { path: "faqs", element: <FAQs /> },

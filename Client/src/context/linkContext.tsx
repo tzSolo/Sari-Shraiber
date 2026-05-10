@@ -16,7 +16,7 @@ const LinkProvider = ({ children }: { children: ReactNode }) => {
         setLinks(links);
     }
 
-    return < linksContext.Provider value={{ links, handleChangeLinks }}>
+    return <linksContext.Provider value={{ links, handleChangeLinks }}>
         {children}
     </linksContext.Provider>
 }

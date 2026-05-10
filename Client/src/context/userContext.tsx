@@ -8,7 +8,8 @@ const defaultUser: User = {
     email: "",
     password: "",
     role_id: 1,
-    state: "guest"
+    state: "guest",
+    token: ""
 }
 const defaultRole: Role = {
     id: 1,

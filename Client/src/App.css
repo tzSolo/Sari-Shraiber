@@ -98,6 +98,7 @@ header ul {
   justify-content: center;
   align-items: center;
   width: 80%;
+  padding: 0;
 }
 
 header ul li {
@@ -270,6 +271,27 @@ main * {
 
 .faqs:nth-child(5) h2 {
   color: rgb(219, 214, 136);
+}
+
+/*  ---- SMALL POPUP ----- */
+
+.open-popup {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-size: 15px;
+  border: 1px solid var(--logo-color-3);
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.open-popup * {
+  color: var(--logo-color-2);
+}
+
+.open-popup p {
+  margin: 0;
 }
 
 /* ---- COURSES ---- */
