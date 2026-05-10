@@ -1,6 +1,7 @@
 import { supabase } from "../lib/supabase.js"
 import jwt from "jsonwebtoken"
 import { createAccessToken, createRefreshToken } from "./tokens.js";
+import { getLinksByRoleId } from "../links/links.service.js"
 
 export const loginUser = async (email: string, password: string) => {
     const { data, error } = await supabase
@@ -16,8 +17,9 @@ export const loginUser = async (email: string, password: string) => {
 
     const accessToken = createAccessToken(data.userId);
     const refreshToken = createRefreshToken(data.userId)
+    const links = await getLinksByRoleId(data.roleId)
 
-    return { accessToken, refreshToken }
+    return { accessToken, refreshToken, links }
 }
 
 export const refreshUserAccessToken = async (token: string) => {
