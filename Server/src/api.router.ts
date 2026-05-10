@@ -7,6 +7,6 @@ const apiRouter = Router();
 
 apiRouter.use("/entities/:entity", entityRouter);
 apiRouter.use("/auth", loginRouter);
-apiRouter.use("/navigation", navigationRouter);
+apiRouter.use("/me", navigationRouter);
 
 export default apiRouter;
