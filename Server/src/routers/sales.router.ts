@@ -3,6 +3,6 @@ import { getSales } from "../controllers/sales.controller.js";
 
 const router = Router();
 
-router.get("/", getSales);
+router.get("/range", getSales);
 
 export default router;
