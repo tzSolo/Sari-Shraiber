@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { getAllEntities, getEntityById, addEntity, updateEntity, deleteEntity } from "./curd.service.js"
+import { getAllEntities, getEntityById, addEntity, updateEntity, deleteEntity } from "../services/curd.service.js"
 
 
 const getTable = (req: Request) => {

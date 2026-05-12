@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { loginUser, refreshUserAccessToken } from "./auth.service.js"
+import { loginUser, refreshUserAccessToken } from "../services/auth.service.js"
 
 export const login = async (req: Request, res: Response) => {
     try {

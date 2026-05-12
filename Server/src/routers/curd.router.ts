@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAll, getById, add, update, deleteE } from "./curd.controller.js";
+import { getAll, getById, add, update, deleteE } from "../controllers/curd.controller.js";
 
 const router = Router({ mergeParams: true });
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { login, refreshAccessToken } from "./auth.controller.js";
+import { login, refreshAccessToken } from "../controllers/auth.controller.js";
 
 
 const router = Router();

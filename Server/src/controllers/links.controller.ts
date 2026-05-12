@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getLinksByRoleId } from "./links.service.js";
+import { getLinksByRoleId } from "../services/links.service.js";
 
 export const getLinks = async (req: Request, res: Response) => {
     try {
@@ -7,6 +7,6 @@ export const getLinks = async (req: Request, res: Response) => {
         return res.json(links);
     }
     catch (e: any) {
-        console.error(e.message);
+       return res.status(500).json(e);
     }
 }

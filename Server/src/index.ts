@@ -1,7 +1,7 @@
 import express, { Request, Response, type Application } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import apiRouter from "./api.router.js";
+import apiRouter from "./routers/api.router.js";
 
 dotenv.config();
 

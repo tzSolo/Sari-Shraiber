@@ -1,7 +1,7 @@
 import { supabase } from "../lib/supabase.js"
 import jwt from "jsonwebtoken"
 import { createAccessToken, createRefreshToken } from "./tokens.js";
-import { getLinksByRoleId } from "../links/links.service.js"
+import { getLinksByRoleId } from "./links.service.js"
 
 export const loginUser = async (email: string, password: string) => {
     const { data, error } = await supabase

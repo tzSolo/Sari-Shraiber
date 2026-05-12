@@ -1,17 +1,16 @@
 import { supabase } from "../lib/supabase.js";
-import type { Entity } from "./entity.model.js";
 
 
-export const getAllEntities = async (tableName: string): Promise<Entity[]> => {
+export const getAllEntities = async (tableName: string) => {
     const { data, error } = await supabase
         .from(tableName)
         .select("*");
 
     if (error) throw error;
-    return data as Entity[];
+    return data;
 };
 
-export const getEntityById = async (id: number, tableName: string): Promise<Entity | null> => {
+export const getEntityById = async (id: number, tableName: string) => {
     const { data, error } = await supabase
         .from(tableName)
         .select("*")
@@ -19,10 +18,10 @@ export const getEntityById = async (id: number, tableName: string): Promise<Enti
         .single();
 
     if (error) throw error;
-    return data as Entity;
+    return data;
 }
 
-export const addEntity = async (entity: Entity, tableName: string): Promise<Entity> => {
+export const addEntity = async (entity: any, tableName: string) => {
     const { data, error } = await supabase
         .from(tableName)
         .insert(entity)
@@ -30,10 +29,10 @@ export const addEntity = async (entity: Entity, tableName: string): Promise<Enti
         .single();
 
     if (error) throw error;
-    return data as Entity;
+    return data;
 }
 
-export const updateEntity = async (id: number, entity: Entity, tableName: string): Promise<Entity> => {
+export const updateEntity = async (id: number, entity: any, tableName: string) => {
     const { error, data } = await supabase
         .from(tableName)
         .update(entity)
@@ -42,7 +41,7 @@ export const updateEntity = async (id: number, entity: Entity, tableName: string
         .single();
 
     if (error) throw error;
-    return data as Entity;
+    return data;
 }
 
 
