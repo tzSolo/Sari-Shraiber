@@ -8,9 +8,9 @@ export const getSalesDataByFrequency = async (range: "day" | "week" | "month") =
         .from("sales")
         .select(`
          *,
-        course:course_id (
-          course_name
-        )
+         courses!inner (
+            course_name
+         )
         `)
         .gte("created_at", startOf.toISOString())
         .lte("created_at", endOf.toISOString());
@@ -20,7 +20,7 @@ export const getSalesDataByFrequency = async (range: "day" | "week" | "month") =
     return data.map((s) => {
         return {
             ...s,
-            course_name: s.course?.course_name
+            course_name: s.courses?.course_name
         }
     });
 }
