@@ -12,6 +12,6 @@ export const getSales = async (req: Request, res: Response) => {
         return res.json(sales);
     }
     catch (e: any) {
-        return res.status(400).json();
+        return res.status(400).json(e);
     }
 }
