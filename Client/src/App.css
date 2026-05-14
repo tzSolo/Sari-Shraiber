@@ -11,8 +11,8 @@
 }
 
 ::selection {
-  color: var(--logo-color-2);
-  background-color: var(--font-color);
+  color: var(--font-color);
+  background-color: var(--logo-color-2);
 }
 
 html,
@@ -113,7 +113,9 @@ header ul li {
 }
 
 header ul li:hover,
-li:has(.active) {
+li:has(.active),
+.edit-button:hover,
+.fr-buttons button:hover {
   --change-color-1: var(--logo-color-2);
   --change-color-2: var(--logo-color-1);
 }
@@ -307,6 +309,9 @@ main * {
 
 #courses-list li {
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .course {
@@ -405,7 +410,7 @@ form div {
   padding: 5px;
 }
 
-form div:nth-child(4) {
+#buy-form div:nth-child(4) {
   flex-direction: row-reverse;
   align-items: center;
 }
@@ -418,6 +423,7 @@ form div input {
   color: var(--logo-color-1);
   border: 2px solid var(--logo-color-3);
   border-radius: 5px;
+  width: 350px;
 }
 
 form div input:focus {
@@ -465,6 +471,41 @@ form button {
 form button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 3px 3px gray;
+}
+
+/* ---- Course Edit ---- */
+
+.close-course {
+  display: none;
+}
+
+.fr-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 245px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fr-buttons h2 {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+.edit-button,
+.fr-buttons button {
+  border: none;
+  padding: 3px 15px;
+  border-radius: 5px;
+  color: var(--change-color-2);
+  background-color: var(--change-color-1);
+  border: 1px solid var(--change-color-2);
+  cursor: pointer;
+  margin: 15px 0 0 0;
 }
 
 /* ----  POPUP  ---- */

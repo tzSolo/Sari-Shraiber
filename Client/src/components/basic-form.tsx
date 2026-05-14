@@ -3,17 +3,30 @@ import useForm from "../hooks/form";
 import { useEffect, useState } from "react";
 
 const BasicForm = (formFullData: FullForm) => {
-    const { count, inputs, button, submit } = formFullData;
-    const { form, handleChange, handleSubmit } = useForm(submit);
+    const { id, count, inputs, button, submit } = formFullData;
+    const { form, initFormValues, handleChange, handleSubmit } = useForm(submit);
     const [valid, setValid] = useState<boolean>(false);
+
+    const initValues = () => {
+        const values = inputs.map((i) => {
+            return { name: i.name, value: i.value ?? "" }
+        });
+
+        initFormValues(values);
+    }
+
+    useEffect(() => {
+        initValues();
+    }, [])
 
     useEffect(() => {
         const values = Object.values(form);
         const isValid = values.length == count && values.every(
             (value: any) => {
-                if (value === false) return false;
-                if (value === true) return true;
-                return value.trim() !== "";
+                const cleaned = value?.toString().trim() || "";
+                if (value === 'false') return false;
+                if (value === 'true') return true;
+                return cleaned !== "";
             }
         );
 
@@ -21,13 +34,14 @@ const BasicForm = (formFullData: FullForm) => {
     }, [form])
 
     return <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id={id}>
             {inputs.map((input, index) => {
                 return <div key={index}>
                     <label htmlFor={input.name}>{input.hebrew}</label>
                     <input
                         id={input.name}
                         name={input.name}
+                        value={form[input.name] ?? ""}
                         type={input.type ?? "text"}
                         onChange={({ target }) => handleChange(target)}
                     />

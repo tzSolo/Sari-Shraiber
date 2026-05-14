@@ -1,0 +1,1 @@
+export type Frequency = "day" | "week" | "month"

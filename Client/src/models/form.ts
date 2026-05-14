@@ -1,6 +1,7 @@
 interface InputData {
     name: string,
     hebrew: string,
+    value?: string
     type?: "text" | "checkbox"
 }
 
@@ -10,6 +11,7 @@ interface ButtonData {
 }
 
 export interface FullForm {
+    id: string
     count: number,
     inputs: InputData[],
     button: ButtonData,

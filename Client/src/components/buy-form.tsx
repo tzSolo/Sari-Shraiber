@@ -25,6 +25,7 @@ const BuyerForm = () => {
     }
 
     const buyerForm: FullForm = {
+        id: "buy-form",
         count: 4,
         inputs: [
             { name: "first_name", hebrew: "שם פרטי" },

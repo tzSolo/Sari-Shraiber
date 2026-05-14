@@ -1,6 +1,6 @@
-import type { ReactElement } from "react";
+import { type ReactNode } from "react";
 
-const MainContainer = ({ children }: { children: ReactElement }) => {
+const MainContainer = ({ children }: { children: ReactNode }) => {
     return <>
         <main>
             <div className="container">{children}</div>

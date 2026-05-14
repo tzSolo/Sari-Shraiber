@@ -8,7 +8,7 @@ import { linksContext } from "../context/linkContext";
 const Login = () => {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const navigate = useNavigate();
-    const { handleUserChange } = useContext(userContext);
+    const { handleUserChange, handleRoleChange } = useContext(userContext);
     const { handleChangeLinks } = useContext(linksContext);
 
     const onSubmit = async (data: any) => {
@@ -32,11 +32,12 @@ const Login = () => {
                 const isValidJWT = result.accessToken.split(".").length === 3;
 
                 if (!isValidJWT) {
-                    throw new Error("Invalid token format");
+                    throw new Error("Invalid token format.");
                 }
 
                 handleUserChange("state", "logged in");
                 handleUserChange("token", result.accessToken);
+                handleRoleChange("name", "admin")
                 localStorage.setItem("token", result.accessToken);
                 handleChangeLinks(result.links);
                 navigate("/courses");
@@ -51,6 +52,7 @@ const Login = () => {
     }
 
     const loginForm: FullForm = {
+        id: "login-form",
         count: 2,
         inputs: [
             { name: "email", hebrew: "מייל" },

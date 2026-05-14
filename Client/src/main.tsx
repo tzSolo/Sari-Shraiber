@@ -8,6 +8,8 @@ import Login from './components/login.tsx';
 import FAQs from './components/FAQs.tsx';
 import Home from './components/home.tsx';
 import LogOut from './components/logout.tsx';
+import CourseForm from './components/admin/course-form.tsx';
+import Statistics from './components/admin/statistics/statistics.tsx';
 
 const arrRouters = createBrowserRouter([
   {
@@ -19,8 +21,10 @@ const arrRouters = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "logout", element: <LogOut /> },
       { path: "courses", element: <Courses /> },
+      { path: "edit", element: <CourseForm /> },
       { path: "form", element: <Form /> },
       { path: "faqs", element: <FAQs /> },
+      { path: "statistics", element: <Statistics /> },
 
       { path: '*', element: <Navigate to="/home" /> }
     ]
