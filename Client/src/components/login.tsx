@@ -56,7 +56,7 @@ const Login = () => {
         count: 2,
         inputs: [
             { name: "email", hebrew: "מייל" },
-            { name: "password", hebrew: "סיסמה" }
+            { name: "password", hebrew: "סיסמה", type: "password" }
         ],
         button: { type: "submit", caption: "כניסה" },
         submit: onSubmit

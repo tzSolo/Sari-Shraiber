@@ -1,9 +1,9 @@
 import useStatistics from "../../../hooks/statistics";
 import type { Frequency } from "../../../models/frequency";
-import Chart from "./chart";
+import Graph from "./graph";
 
 const Statistics = () => {
-    const { salesData, swichAbout } = useStatistics();
+    const { about, salesData, swichAbout, chartData, rangeInNumbers } = useStatistics();
 
     const changeChartFrequency = (about: Frequency) => {
         swichAbout(about);
@@ -11,9 +11,9 @@ const Statistics = () => {
 
     return <>
         <ul className="charts-container">
-            {salesData && salesData.map((s, index) => {
+            {salesData && salesData.map((sales, index) => {                
                 return <li key={index}>
-                    <Chart sales={s} />
+                    <Graph {...{ about, sales, chartData, rangeInNumbers }} />
                 </li>
             })}
         </ul>

@@ -2,7 +2,7 @@ interface InputData {
     name: string,
     hebrew: string,
     value?: string
-    type?: "text" | "checkbox"
+    type?: "text" | "checkbox"|"password"
 }
 
 interface ButtonData {
