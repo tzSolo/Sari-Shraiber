@@ -115,7 +115,8 @@ header ul li {
 header ul li:hover,
 li:has(.active),
 .edit-button:hover,
-.fr-buttons button:hover {
+.fr-buttons button:hover,
+.download-buttons button:hover {
   --change-color-1: var(--logo-color-2);
   --change-color-2: var(--logo-color-1);
 }
@@ -497,8 +498,8 @@ form button:hover {
 }
 
 .edit-button,
-.fr-buttons button {
-  border: none;
+.fr-buttons button,
+.download-buttons button {
   padding: 3px 15px;
   border-radius: 5px;
   color: var(--change-color-2);
@@ -506,6 +507,36 @@ form button:hover {
   border: 1px solid var(--change-color-2);
   cursor: pointer;
   margin: 15px 0 0 0;
+}
+
+.download {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.download p {
+  margin: 0;
+}
+
+.download p img {
+  padding: 0 2px;
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.download-buttons button {
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.download-buttons img {
+  width: 10%;
 }
 
 /* chart */

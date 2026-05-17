@@ -10,6 +10,7 @@ import Home from './components/home.tsx';
 import LogOut from './components/logout.tsx';
 import CourseForm from './components/admin/course-form.tsx';
 import Statistics from './components/admin/statistics/statistics.tsx';
+import DownloadCourses from './components/download.tsx';
 
 const arrRouters = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const arrRouters = createBrowserRouter([
       { path: "form", element: <Form /> },
       { path: "faqs", element: <FAQs /> },
       { path: "statistics", element: <Statistics /> },
+      { path: "download", element: <DownloadCourses /> },
 
       { path: '*', element: <Navigate to="/home" /> }
     ]
