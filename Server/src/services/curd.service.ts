@@ -49,7 +49,7 @@ export const deleteEntity = async (id: number, tableName: string): Promise<boole
     const { error } = await supabase
         .from(tableName)
         .delete()
-        .eq("id", `${id}`);
+        .eq("id", id);
 
     return !error;
 }
