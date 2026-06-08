@@ -19,7 +19,7 @@ export const loginUser = async (email: string, password: string) => {
     const refreshToken = createRefreshToken(data.id);
     const links = await getLinksByRoleId(data.role_id);
 
-    return { accessToken, refreshToken, links }
+    return { accessToken, refreshToken, user: data, links }
 }
 
 export const refreshUserAccessToken = async (token: string) => {

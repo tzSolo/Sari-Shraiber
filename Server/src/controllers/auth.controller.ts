@@ -3,14 +3,14 @@ import { loginUser, refreshUserAccessToken } from "../services/auth.service.js"
 
 export const login = async (req: Request, res: Response) => {
     try {
-        const { accessToken, refreshToken, links } = await loginUser(req.body.email, req.body.password);
+        const { accessToken, refreshToken, user, links } = await loginUser(req.body.email, req.body.password);
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
             secure: true,
             sameSite: "none",
             maxAge: 1000 * 60 * 60 * 24 * 7
         })
-        return res.json({ accessToken, links });
+        return res.json({ accessToken, user, links });
     }
     catch (e: any) {
         return res.status(401).json({
