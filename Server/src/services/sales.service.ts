@@ -13,8 +13,8 @@ export const getSalesDataByFrequency = async (range: "day" | "week" | "month") =
             serial_num
          )
         `)
-        .gte("created_at", startOf.toISOString())
-        .lte("created_at", endOf.toISOString());
+        .gte("created_at", startOf.toISO())
+        .lte("created_at", endOf.toISO());
 
     if (error) throw error;
 
