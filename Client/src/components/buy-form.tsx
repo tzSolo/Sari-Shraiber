@@ -2,25 +2,18 @@ import { useSearchParams } from "react-router-dom";
 import BasicForm from "./basic-form";
 import type { FullForm } from "../models/form";
 import usePayment from "../hooks/payment";
+import useEntity from "../hooks/crud-entity";
 
 const BuyerForm = () => {
     const [params] = useSearchParams();
     const courseId = params.get("id");
+    const { createEntity } = useEntity();
     const { handlePayment } = usePayment();
-    const baseUrl = import.meta.env.VITE_BASE_URL;
 
     const submitForm = async (data: any) => {
         const { first_name, last_name, email } = data;
         const userData = { first_name, last_name, email };
-
-        await fetch(`${baseUrl}/entities/users`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(userData)
-        });
-
+        createEntity("users", userData);
         handlePayment(courseId);
     }
 

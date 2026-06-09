@@ -4,12 +4,14 @@ import BasicForm from "./basic-form";
 import { useContext } from "react";
 import { userContext } from "../context/userContext";
 import { linksContext } from "../context/linkContext";
+import useCrudEntity from "../hooks/crud-entity";
 
 const Login = () => {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const navigate = useNavigate();
     const { handleUserChange, handleRoleChange } = useContext(userContext);
     const { handleChangeLinks } = useContext(linksContext);
+    const { readEntity } = useCrudEntity();
 
     const onSubmit = async (data: any) => {
         try {
@@ -37,9 +39,13 @@ const Login = () => {
 
                 handleUserChange("state", "logged in");
                 handleUserChange("token", result.accessToken);
-                handleRoleChange("name", "admin")
                 localStorage.setItem("token", result.accessToken);
                 handleChangeLinks(result.links);
+
+                const roleId = result.user.role_id;
+                const role = await readEntity("roles", roleId);
+                handleRoleChange("name", role.name);
+
                 navigate("/courses");
             }
             else {

@@ -2,13 +2,15 @@ import { Link, useNavigate } from "react-router-dom";
 import type { FullCourse } from "../../models/course";
 import { useContext } from "react";
 import { userContext } from "../../context/userContext";
+import useCrudEntity from "../../hooks/crud-entity";
 
 const Course = ({ course, caption, image }: FullCourse) => {
-    const { name, price, serial_num } = course;
+    const { id, name, price, serial_num } = course;
     const { header, description } = caption;
     const { src, alt } = image;
     const { role } = useContext(userContext);
     const navigate = useNavigate();
+    const { deleteEntity } = useCrudEntity();
 
     const handleEditCourse = () => {
         navigate("/edit", {
@@ -27,6 +29,12 @@ const Course = ({ course, caption, image }: FullCourse) => {
         });
     }
 
+    const handleDeleteCourse = async () => {        
+        await deleteEntity("courses", id);
+        await deleteEntity("captions", caption.id);
+        await deleteEntity("images", image.id);
+    }
+
     return <>
         <div className="course">
             <h1>{name}</h1>
@@ -43,12 +51,22 @@ const Course = ({ course, caption, image }: FullCourse) => {
         {
             role.name === "admin"
             &&
-            <button
-                onClick={handleEditCourse}
-                className="edit-button"
-            >
-                עריכה
-            </button>
+            <>
+                <div className="wrap-edit-buttons">
+                    <button
+                        onClick={handleEditCourse}
+                        className="edit-button"
+                    >
+                        עריכה
+                    </button>
+                    <button
+                        onClick={handleDeleteCourse}
+                        className="edit-button"
+                    >
+                        מחיקה
+                    </button>
+                </div>
+            </>
         }
     </>
 }

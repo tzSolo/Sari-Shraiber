@@ -14,15 +14,18 @@ const LogInOrLogOut = () => {
     }
 
     return <>
-        <div id="login" onClick={handleLogInOrOutClick}>
-            <img
-                src={user.state && user.state === "logged in" ? rightArrow : leftArrow}
-                alt="state"
-            />
-            <img
-                src={door}
-                alt="login"
-            />
+        <div  id="admin-only">
+            <div id="login" onClick={handleLogInOrOutClick}>
+                <img
+                    src={user.state && user.state === "logged in" ? rightArrow : leftArrow}
+                    alt="state"
+                />
+                <img
+                    src={door}
+                    alt="login"
+                />
+            </div>
+            <span>כניסת מנהל בלבד</span>
         </div>
     </>
 }

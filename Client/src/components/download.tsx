@@ -2,8 +2,19 @@ import copy from "../images/copyright.gif"
 import heart from "../images/heart.jpg"
 import wiking from "../images/wiking.jpg"
 import download from "../images/download.svg"
+import { useEffect } from "react"
+import useEntity from "../hooks/crud-entity"
+import { useSearchParams } from "react-router-dom"
 
 const DownloadCourses = () => {
+    const [params] = useSearchParams();
+    const courseId = params.get("courseId");
+    const { createEntity } = useEntity();
+
+    useEffect(() => {
+        createEntity("sales", { course_id: courseId });
+    }, [])
+
     return <>
         <div className="download">
             <img src={copy} alt="gif" />

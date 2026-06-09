@@ -1,12 +1,11 @@
 import useFAQs from "../hooks/FAQs";
 import plus from "../images/circle-plus.svg"
 import minus from "../images/circle-minus.svg"
-import { faqs } from "../data/faqs";
 import ReactMarkdown from "react-markdown"
 
 const FAQs = () => {
-    const { openId, handleOpen } = useFAQs();
-
+    const { faqs, openId, handleOpen } = useFAQs();
+    
     return <>
         <ul>
             {faqs.map((q, index) => {

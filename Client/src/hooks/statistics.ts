@@ -1,16 +1,24 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import type { Frequency } from "../models/frequency";
 import type { Sale } from "../models/sale";
+import { userContext } from "../context/userContext";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const useStatistics = () => {
     const [about, setAbout] = useState<Frequency>("week");
     const [salesData, setSalesData] = useState<Sale[][]>();
+    const { user } = useContext(userContext);
+    const { token } = user;
 
     const getSalesData = async (freq: Frequency) => {
         try {
-            const response = await fetch(`${baseUrl}/sales/range?about=${freq}`);
+            const response = await fetch(`${baseUrl}/sales/range?range=${freq}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
 
             if (!response.ok) {
                 throw new Error("Cannot get sales data");
@@ -40,15 +48,15 @@ const useStatistics = () => {
         return [...map.values()].sort((s1, s2) => s1[0].serial_num - s2[0].serial_num);
     }
 
-    const swichAbout = (newAbout: Frequency) => {
+    const switchAbout = (newAbout: Frequency) => {
         if (about === newAbout) return;
 
         setAbout(newAbout);
     }
 
     const chartData = (sales: Sale[]) => {
-        const labels = rangeInNumbers();
-        const res = new Array(labels.length).fill(0);
+        const length = countRange();
+        const res = new Array(length).fill(0);
 
         sales.forEach((sale) => {
             let time = new Date(sale.created_at);
@@ -64,13 +72,13 @@ const useStatistics = () => {
 
     const range = (num: number) => Array.from({ length: num }, (_, i) => i);
 
-    const rangeInNumbers = () => {
+    const countRange = () => {
         switch (about) {
             case "day": {
-                return range(24);
+                return 24;
             }
             case "week": {
-                return range(7)
+                return 7;
             }
             case "month": {
                 const now = new Date();
@@ -78,16 +86,20 @@ const useStatistics = () => {
                 const month = now.getMonth();
                 const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-                return range(daysInMonth);
+                return daysInMonth;
             }
         }
+    }
+
+    const rangeInNumbers = () => {
+        return range(countRange());
     }
 
     useEffect(() => {
         getSalesData(about);
     }, [about])
 
-    return { about, salesData, swichAbout, chartData, rangeInNumbers }
+    return { about, salesData, switchAbout, chartData, rangeInNumbers }
 }
 
 export default useStatistics;

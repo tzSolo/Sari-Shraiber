@@ -93,6 +93,16 @@ header .container {
   width: 75%;
 }
 
+#admin-only {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+#admin-only span {
+  font-size: 12px;
+}
+
 header ul {
   display: flex;
   justify-content: center;
@@ -116,7 +126,9 @@ header ul li:hover,
 li:has(.active),
 .edit-button:hover,
 .fr-buttons button:hover,
-.download-buttons button:hover {
+.download-buttons button:hover,
+.active-range
+{
   --change-color-1: var(--logo-color-2);
   --change-color-2: var(--logo-color-1);
 }
@@ -379,6 +391,11 @@ main * {
   width: 100%;
 }
 
+.wrap-edit-buttons{
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
 /* ----  FORM  ---- */
 
 form {
